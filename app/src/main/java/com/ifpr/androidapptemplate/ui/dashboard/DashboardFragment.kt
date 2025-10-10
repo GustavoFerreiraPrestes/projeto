@@ -29,10 +29,16 @@ class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
 
-    private lateinit var enderecoEditText: EditText
     private lateinit var itemImageView: ImageView
     private var imageUri: Uri? = null
 
+    private lateinit var nomeItemEditText: EditText
+
+    private lateinit var tipoItemEditText: EditText
+
+    private lateinit var descricaoItemEditText: EditText
+
+    private lateinit var valorItemEditText: EditText
 
     //TODO("Declare aqui as outras variaveis do tipo EditText que foram inseridas no layout")
     private lateinit var salvarButton: Button
@@ -66,7 +72,11 @@ class DashboardFragment : Fragment() {
         itemImageView = view.findViewById(R.id.image_item)
         salvarButton = view.findViewById(R.id.salvarItemButton)
         selectImageButton = view.findViewById(R.id.button_select_image)
-        enderecoEditText = view.findViewById(R.id.enderecoItemEditText)
+        nomeItemEditText = view.findViewById(R.id.nomeItemEditText)
+        tipoItemEditText = view.findViewById(R.id.tipoItemEditText)
+        descricaoItemEditText = view.findViewById(R.id.descricaoItemEditText)
+        valorItemEditText = view.findViewById(R.id.valorItemEditText)
+
         //TODO("Capture aqui os outro campos que foram inseridos no layout. Por exemplo, ate
         // o momento so foi capturado o endereco (EditText)")
 
@@ -97,13 +107,16 @@ class DashboardFragment : Fragment() {
 
     private fun salvarItem() {
         //TODO("Capture aqui o conteudo que esta nos outros editTexts que foram criados")
-        val endereco = enderecoEditText.text.toString().trim()
+        val nome = nomeItemEditText.text.toString().trim()
+        val tipo = tipoItemEditText.text.toString().trim()
+        val descricao = descricaoItemEditText.text.toString().trim()
+        val valor = valorItemEditText.text.toString().trim()
 
-        if (endereco.isEmpty() || imageUri == null) {
-            Toast.makeText(context, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT)
-                .show()
+        if (nome.isEmpty() || tipo.isEmpty() || descricao.isEmpty() || valor.isEmpty() || imageUri == null) {
+            Toast.makeText(context, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show()
             return
         }
+
         uploadImageToFirestore()
     }
 
@@ -116,10 +129,14 @@ class DashboardFragment : Fragment() {
 
             if (bytes != null) {
                 val base64Image = Base64.encodeToString(bytes, Base64.DEFAULT)
-                val endereco = enderecoEditText.text.toString().trim()
+                val nome = nomeItemEditText.text.toString().trim()
+                val tipo = tipoItemEditText.text.toString().trim()
+                val descricao = descricaoItemEditText.text.toString().trim()
+                val valor = valorItemEditText.text.toString().toFloat()
                 //TODO("Capture aqui o conteudo que esta nos outros editTexts que foram criados")
 
-                val item = Item(endereco, base64Image)
+                val item = Item(nome, tipo, descricao, valor, base64Image)
+
 
                 saveItemIntoDatabase(item)
             }
