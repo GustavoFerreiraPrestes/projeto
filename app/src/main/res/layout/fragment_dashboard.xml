@@ -15,7 +15,7 @@
         android:layout_marginTop="32dp"
         android:textAlignment="center"
         android:textSize="20sp"
-        android:text="Cadastro de ..."
+        android:text="Cadastro de Produtos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,25 +43,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image_item" />
 
-
     <EditText
-        android:id="@+id/enderecoItemEditText"
+        android:id="@+id/nomeItemEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Endereço"
+        android:layout_marginTop="44dp"
+        android:hint="Nome"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_select_image" />
 
+    <EditText
+        android:id="@+id/tipoItemEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:hint="Tipo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_select_image" />
+
+    <EditText
+        android:id="@+id/descricaoItemEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:hint="Descrição"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_select_image" />
+
+    <EditText
+        android:id="@+id/valorItemEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:hint="Valor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_select_image" />
 
     <Button
         android:id="@+id/salvarItemButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
         android:text="Salvar"
-        app:layout_constraintTop_toBottomOf="@id/enderecoItemEditText"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/valorItemEditText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
