@@ -106,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
         android:layout_marginEnd="16dp"
-        android:src="@android:drawable/stat_notify_chat"
+        android:src="@drawable/cat_svgrepo_com"
         android:contentDescription="Abrir IA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
